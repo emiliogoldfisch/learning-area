@@ -44,7 +44,9 @@
 
         const li = document.createElement('li');
         const span = document.createElement('span');
+        // has to be in this scope: adding an item creates the item + its own delete button
         const deleteButton = document.createElement('button');
+    
         li.appendChild(span);
         li.appendChild(deleteButton);
 
@@ -52,14 +54,11 @@
         span.textContent = inputValue;
         deleteButton.textContent = 'Delete';
 
+        // delete button event listener has to be in scope of onButtonClick()
         deleteButton.addEventListener('click', () => li.remove);
         input.focus();
-     
       }
 
-
-
-
-    </script>
+      </script>
   </body>
 </html>
